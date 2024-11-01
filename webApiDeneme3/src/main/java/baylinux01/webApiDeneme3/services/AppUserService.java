@@ -112,10 +112,10 @@ public class AppUserService {
 			List<AppUser> users=appUserRepository.findAll();
 			for(AppUser u:users)
 			{
-				if(u.getUsername().equals(username)) return "username already exists";
+				if(u.getUsername().equals(newUsername)) return "username already exists";
 			}
 			AppUser user=appUserRepository.findByUsername(username);
-			user.setUsername(username);
+			user.setUsername(newUsername);
 			appUserRepository.save(user);
 			return "success";
 		}
