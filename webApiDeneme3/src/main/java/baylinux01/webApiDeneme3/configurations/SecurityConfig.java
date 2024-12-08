@@ -24,6 +24,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 //import baylinux01.securityImplementationDemo.filters.JWTFilter;
 //import io.jsonwebtoken.lang.Arrays;
@@ -50,10 +51,11 @@ public class SecurityConfig{
 	{
 		return http
 				.csrf(customizer->customizer.disable())
-				.authorizeHttpRequests(req->req
-						.requestMatchers("/*","/appUser/register","/appUser/login").permitAll()
-						//.requestMatchers("/appUser/**").hasRole("USER")
-						.anyRequest().authenticated())
+//				.authorizeHttpRequests(req->req
+//						.requestMatchers("/*","/appUser/createAppUser","/appUser/login").permitAll()
+//						//.requestMatchers("/appUser/**").hasRole("USER")
+//						.anyRequest().authenticated()
+//						)
 			  //.formLogin(Customizer.withDefaults())
 				.httpBasic(Customizer.withDefaults())
 				.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

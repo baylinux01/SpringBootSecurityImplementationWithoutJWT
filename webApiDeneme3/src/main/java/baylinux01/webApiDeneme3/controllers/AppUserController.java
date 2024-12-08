@@ -48,11 +48,11 @@ public class AppUserController {
 	{
 		return appUserService.getAllAppUsers();
 	}
-	@PostMapping("/register")
-	public String createAppUser(HttpServletRequest req)
+	@PostMapping("/createAppUser")
+	public String createAppUser(HttpServletRequest req, String username,String password)
 	{
-		String username=req.getParameter("username");
-		String password=req.getParameter("password");
+//		String username=req.getParameter("username");
+//		String password=req.getParameter("password");
 		return appUserService.createAppUser(username,password);
 		
 	}
