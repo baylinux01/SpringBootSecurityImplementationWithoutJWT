@@ -51,11 +51,11 @@ public class SecurityConfig{
 	{
 		return http
 				.csrf(customizer->customizer.disable())
-//				.authorizeHttpRequests(req->req
-//						.requestMatchers("/*","/appUser/createAppUser","/appUser/login").permitAll()
-//						//.requestMatchers("/appUser/**").hasRole("USER")
-//						.anyRequest().authenticated()
-//						)
+				.authorizeHttpRequests(req->req
+						.requestMatchers("/*","/appUser/createAppUser","/appUser/login").permitAll()
+						//.requestMatchers("/appUser/**").hasRole("USER")
+						.anyRequest().authenticated()
+						)
 			  //.formLogin(Customizer.withDefaults())
 				.httpBasic(Customizer.withDefaults())
 				.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
